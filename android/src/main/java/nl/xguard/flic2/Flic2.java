@@ -61,9 +61,9 @@ public class Flic2 extends ReactContextBaseJavaModule {
         if(!managerIsReady){
             try{
                manager = Flic2Manager.initAndGetInstance(mreactContext, handler);
-               managerIsReady = true
-            }catch(Exception e){
-               managerIsReady = false
+               managerIsReady = true;
+            }catch(Exception e) {
+               managerIsReady = false;
             }
         }
 
