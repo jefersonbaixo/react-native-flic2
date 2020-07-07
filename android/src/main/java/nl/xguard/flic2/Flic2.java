@@ -58,6 +58,15 @@ public class Flic2 extends ReactContextBaseJavaModule {
         mReactEvent = new ReactEvent(mreactContext);
         handler = new Handler(mreactContext.getMainLooper());
 
+        if(!managerIsReady){
+            try{
+               manager = Flic2Manager.initAndGetInstance(mreactContext, handler);
+               managerIsReady = true
+            }catch(Exception e){
+               managerIsReady = false
+            }
+        }
+
         for (Flic2Button button : manager.getButtons()) {
             listenToButton(button);
         }
@@ -70,7 +79,7 @@ public class Flic2 extends ReactContextBaseJavaModule {
     public void startup() {
         // do nothing
     }
-    
+
     public static void startupAndroid(Context context, Handler handler) {
         Log.d(TAG, "startup()");
         Flic2Manager.initAndGetInstance(context, handler);
