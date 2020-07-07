@@ -58,8 +58,10 @@ public class Flic2 extends ReactContextBaseJavaModule {
         mReactEvent = new ReactEvent(mreactContext);
         handler = new Handler(mreactContext.getMainLooper());
 
-        for (Flic2Button button : manager.getButtons()) {
-            listenToButton(button);
+        if(managerIsReady && manager != null){
+          for (Flic2Button button : manager.getButtons()) {
+              listenToButton(button);
+          }
         }
 
     }
