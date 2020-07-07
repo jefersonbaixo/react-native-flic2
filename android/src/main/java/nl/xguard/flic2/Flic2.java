@@ -58,10 +58,8 @@ public class Flic2 extends ReactContextBaseJavaModule {
         mReactEvent = new ReactEvent(mreactContext);
         handler = new Handler(mreactContext.getMainLooper());
 
-        if(managerIsReady && manager != null){
-          for (Flic2Button button : manager.getButtons()) {
-              listenToButton(button);
-          }
+        for (Flic2Button button : manager.getButtons()) {
+            listenToButton(button);
         }
 
     }
@@ -81,22 +79,22 @@ public class Flic2 extends ReactContextBaseJavaModule {
     @ReactMethod
     @TargetApi(23)
     public void startService() {
-//        Log.d(TAG, "startService()");
-//        Boolean isRunning = isServiceRunning(mreactContext, Flic2Service.class);
-//
-//        if (!isRunning) {
-//            Intent intent = new Intent(mreactContext, Flic2Service.class);
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//                Log.d(TAG, "startService() new");
-//                mreactContext.startForegroundService(intent);
-//            } else {
-//                Log.d(TAG, "startService() old" );
-//                mreactContext.startService(intent);
-//            }
-//
-//        } else {
-//            Log.d(TAG, "startService(): service is already running");
-//        }
+       Log.d(TAG, "startService()");
+       Boolean isRunning = isServiceRunning(mreactContext, Flic2Service.class);
+
+       if (!isRunning) {
+           Intent intent = new Intent(mreactContext, Flic2Service.class);
+           if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+               Log.d(TAG, "startService() new");
+               mreactContext.startForegroundService(intent);
+           } else {
+               Log.d(TAG, "startService() old" );
+               mreactContext.startService(intent);
+           }
+
+       } else {
+           Log.d(TAG, "startService(): service is already running");
+       }
     }
 
     public void listenToButton(Flic2Button button) {
