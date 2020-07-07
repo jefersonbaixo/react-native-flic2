@@ -111,4 +111,9 @@ public class flic2ButtonCallback extends Flic2ButtonListener {
         Log.d(TAG, "onBatteryLevelUpdated() called with: button = [" + level.getEstimatedPercentage() + "]");
         mReactEvent.send(button, ReactEvent.EVENT_BUTTON_BATTERY_LEVEL);
     }
+
+    @Override
+    public void onAllQueuedButtonEventsProcessed(Flic2Button button) {
+      //TODO: Implement if desired
+    }
 }
