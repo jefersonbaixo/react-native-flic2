@@ -27,7 +27,7 @@ public class flic2ButtonCallback extends Flic2ButtonListener {
         Log.d(TAG, "onDisconnect() called with: button = [" + button + "]");
         mReactEvent.send(button, ReactEvent.EVENT_BUTTON_STATUS_DISCONNECTED);
     }
-    
+
     @Override
     public void onConnect(Flic2Button button) {
         Log.d(TAG, "onConnect() called with: button = [" + button + "]");
@@ -104,6 +104,12 @@ public class flic2ButtonCallback extends Flic2ButtonListener {
     @Override
     public void onNameUpdated(Flic2Button button, String newName) {
         mReactEvent.send(button, ReactEvent.EVENT_BUTTON_NEW_NAME);
+    }
+
+    @Override
+    ios-android-both-work
+    public void onAllQueuedButtonEventsProcessed(Flic2Button button) {
+      //TODO: Implement if desired
     }
 
     @Override
