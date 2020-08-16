@@ -107,7 +107,6 @@ public class flic2ButtonCallback extends Flic2ButtonListener {
     }
 
     @Override
-    ios-android-both-work
     public void onAllQueuedButtonEventsProcessed(Flic2Button button) {
       //TODO: Implement if desired
     }
@@ -118,8 +117,4 @@ public class flic2ButtonCallback extends Flic2ButtonListener {
         mReactEvent.send(button, ReactEvent.EVENT_BUTTON_BATTERY_LEVEL);
     }
 
-    @Override
-    public void onAllQueuedButtonEventsProcessed(Flic2Button button) {
-      //TODO: Implement if desired
-    }
 }
